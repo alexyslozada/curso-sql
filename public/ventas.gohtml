@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimun-scale=1.0"/>
+    <link rel="stylesheet" href="/resources/css/estilos.css"/>
+    <link href="https://file.myfontastic.com/gVhWFfTbY55yVaY7oxJaF3/icons.css" rel="stylesheet"/>
+    <title>Ventas</title>
+  </head>
+  <body class="ventas">
+    <div class="main-container">
+      <aside class="main-aside"><a href="/"><img src="/resources/img/logo.png" class="logo"/></a>
+        <ul class="menu ed-menu">
+          <li class="menu__item"><a href="/compras" class="menu__link icon-compras">Compras</a></li>
+          <li class="menu__item"><a href="/ventas" class="menu__link icon-ventas">Ventas</a></li>
+          <li class="menu__item"><a href="/lista-compras" class="menu__link icon-lista-compras">Lista de compras</a></li>
+          <li class="menu__item"><a href="/lista-ventas" class="menu__link icon-lista-ventas">Lista de ventas</a></li>
+          <li class="menu__item"><a href="/lista-productos" class="menu__link icon-lista-productos">Lista de productos</a></li>
+          <li class="menu__item"><a href="/logout" class="menu__link icon-cerrar">Salir</a></li>
+        </ul>
+      </aside>
+      <main class="main-content">
+          <div class="usuario__sistema">Bienvenido</div>
+        <h1>Ventas</h1>
+        <form action="/ventas" method="post">
+          <div class="form-item ed-container">
+            <div class="ed-item base-30">
+              <label for="cliente">Cliente</label>
+            </div>
+            <div class="ed-item base-70">
+              <select name="cliente" id="cliente">
+                {{range .Terceros}}
+                    <option value="{{.ID}}">{{.Nombre}}</option>
+                  {{end}}
+              </select>
+            </div>
+          </div>
+          <div class="form-item ed-container">
+            <div class="ed-item base-30">
+              <label for="producto">Producto</label>
+            </div>
+            <div class="ed-item base-70">
+              <select name="producto" id="producto">
+                {{range .Productos}}
+                    <option value="{{.ID}}">{{.Nombre}}</option>
+                  {{end}}
+              </select>
+            </div>
+          </div>
+          <div class="form-item ed-container">
+            <div class="ed-item base-30">
+              <label for="cantidad">Cantidad</label>
+            </div>
+            <div class="ed-item base-70">
+              <input type="number" id="cantidad" name="cantidad"/>
+            </div>
+          </div>
+          <div class="ed-container">
+            <div class="ed-item">
+              <input type="submit" value="vender"/>
+            </div>
+          </div>
+            <div class="ed-container">
+                <div clas="ed-item">
+                    <div class="mensaje__error"></div>
+                    {{if .Mensaje}}
+                        <div class="mensaje__exito">{{.Mensaje}}</div>
+                    {{end}}
+                </div>
+            </div>
+        </form>
+      </main>
+    </div>
+    <script src="js/efectos.js"></script>
+  </body>
+</html>

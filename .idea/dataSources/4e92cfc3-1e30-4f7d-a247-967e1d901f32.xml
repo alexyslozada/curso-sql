@@ -1,0 +1,796 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="escueladigital@localhost">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.2">
+    <root id="1"/>
+    <database id="2" parent="1" name="escueladigital">
+      <ObjectId>35054</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <schema id="3" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <IntrospectionTimestamp>2017-05-17.12:00:18.965</IntrospectionTimestamp>
+      <IntrospectionStateNumber>1902</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="4" parent="2" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+    </schema>
+    <schema id="5" parent="2" name="pg_toast">
+      <ObjectId>99</ObjectId>
+    </schema>
+    <schema id="6" parent="2" name="pg_temp_1">
+      <ObjectId>11848</ObjectId>
+    </schema>
+    <schema id="7" parent="2" name="pg_toast_temp_1">
+      <ObjectId>11849</ObjectId>
+    </schema>
+    <schema id="8" parent="2" name="information_schema">
+      <ObjectId>12119</ObjectId>
+    </schema>
+    <sequence id="9" parent="3" name="auditoria_id_auditoria_seq">
+      <ObjectId>35081</ObjectId>
+      <StateNumber>1804</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="10" parent="3" name="compras_id_compra_seq">
+      <ObjectId>35089</ObjectId>
+      <StateNumber>1807</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="11" parent="3" name="perfiles_id_perfil_seq">
+      <ObjectId>35094</ObjectId>
+      <StateNumber>1810</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="12" parent="3" name="productos_id_producto_seq">
+      <ObjectId>35096</ObjectId>
+      <StateNumber>1812</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="13" parent="3" name="terceros_id_tercero_seq">
+      <ObjectId>35098</ObjectId>
+      <StateNumber>1814</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="14" parent="3" name="usuarios_id_usuario_seq">
+      <ObjectId>35103</ObjectId>
+      <StateNumber>1817</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="15" parent="3" name="ventas_id_venta_seq">
+      <ObjectId>35111</ObjectId>
+      <StateNumber>1820</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <table id="16" parent="3" name="auditoria">
+      <ObjectId>35074</ObjectId>
+      <StateNumber>1894</StateNumber>
+    </table>
+    <table id="17" parent="3" name="compras">
+      <ObjectId>35083</ObjectId>
+      <StateNumber>1897</StateNumber>
+    </table>
+    <table id="18" parent="3" name="perfiles">
+      <ObjectId>35091</ObjectId>
+      <StateNumber>1899</StateNumber>
+    </table>
+    <table id="19" parent="3" name="productos">
+      <ObjectId>35058</ObjectId>
+      <StateNumber>1900</StateNumber>
+    </table>
+    <table id="20" parent="3" name="terceros">
+      <ObjectId>35065</ObjectId>
+      <StateNumber>1901</StateNumber>
+    </table>
+    <table id="21" parent="3" name="usuarios">
+      <ObjectId>35100</ObjectId>
+      <StateNumber>1902</StateNumber>
+    </table>
+    <table id="22" parent="3" name="ventas">
+      <ObjectId>35105</ObjectId>
+      <StateNumber>1902</StateNumber>
+    </table>
+    <routine id="23" parent="3" name="autenticacion">
+      <ObjectId>35055</ObjectId>
+      <StateNumber>1789</StateNumber>
+      <ArgumentsDefinition>_usuario character varying, _clave character varying</ArgumentsDefinition>
+      <ResultsDefinition>TABLE(id_usuario smallint, nombre character varying, id_perfil smallint, perfil character varying)</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <ReturnsSet>1</ReturnsSet>
+    </routine>
+    <routine id="24" parent="3" name="comprar">
+      <ObjectId>35056</ObjectId>
+      <StateNumber>1790</StateNumber>
+      <ArgumentsDefinition>_proveedor smallint, _producto smallint, _cantidad smallint, _valor smallint, _usuario smallint</ArgumentsDefinition>
+      <ResultsDefinition>smallint</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+    </routine>
+    <routine id="25" parent="3" name="consulta_compras">
+      <ObjectId>35057</ObjectId>
+      <StateNumber>1791</StateNumber>
+      <ArgumentsDefinition>_limite smallint, _pagina smallint</ArgumentsDefinition>
+      <ResultsDefinition>TABLE(id_compra smallint, fecha date, cliente character varying, producto character varying, cantidad smallint, valor smallint)</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <ReturnsSet>1</ReturnsSet>
+    </routine>
+    <routine id="26" parent="3" name="consulta_inventario">
+      <ObjectId>35063</ObjectId>
+      <StateNumber>1793</StateNumber>
+      <ArgumentsDefinition>_limite smallint, _pagina smallint</ArgumentsDefinition>
+      <ResultsDefinition>SETOF productos</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <ReturnsSet>1</ReturnsSet>
+    </routine>
+    <routine id="27" parent="3" name="consulta_productos">
+      <ObjectId>35064</ObjectId>
+      <StateNumber>1794</StateNumber>
+      <ResultsDefinition>SETOF productos</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <ReturnsSet>1</ReturnsSet>
+    </routine>
+    <routine id="28" parent="3" name="consulta_terceros">
+      <ObjectId>35068</ObjectId>
+      <StateNumber>1796</StateNumber>
+      <ResultsDefinition>SETOF terceros</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <ReturnsSet>1</ReturnsSet>
+    </routine>
+    <routine id="29" parent="3" name="consulta_ventas">
+      <ObjectId>35069</ObjectId>
+      <StateNumber>1797</StateNumber>
+      <ArgumentsDefinition>_limite smallint, _pagina smallint</ArgumentsDefinition>
+      <ResultsDefinition>TABLE(id_venta smallint, fecha date, cliente character varying, producto character varying, cantidad smallint, valor smallint)</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <ReturnsSet>1</ReturnsSet>
+    </routine>
+    <routine id="30" parent="3" name="tg_compras_auditoria">
+      <ObjectId>35070</ObjectId>
+      <StateNumber>1798</StateNumber>
+      <ResultsDefinition>trigger</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+    </routine>
+    <routine id="31" parent="3" name="tg_productos_auditoria">
+      <ObjectId>35071</ObjectId>
+      <StateNumber>1799</StateNumber>
+      <ResultsDefinition>trigger</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+    </routine>
+    <routine id="32" parent="3" name="tg_ventas_auditoria">
+      <ObjectId>35072</ObjectId>
+      <StateNumber>1800</StateNumber>
+      <ResultsDefinition>trigger</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+    </routine>
+    <routine id="33" parent="3" name="vender">
+      <ObjectId>35073</ObjectId>
+      <StateNumber>1801</StateNumber>
+      <ArgumentsDefinition>_cliente smallint, _producto smallint, _cantidad smallint, _usuario smallint</ArgumentsDefinition>
+      <ResultsDefinition>smallint</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+    </routine>
+    <column id="34" parent="16" name="id_auditoria">
+      <Position>1</Position>
+      <DataType>smallint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1822</StateNumber>
+      <SequenceName>auditoria_id_auditoria_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;auditoria_id_auditoria_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="35" parent="16" name="fecha">
+      <Position>2</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1802</StateNumber>
+      <DefaultExpression>now()</DefaultExpression>
+    </column>
+    <column id="36" parent="16" name="id_usuario">
+      <Position>3</Position>
+      <DataType>smallint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1802</StateNumber>
+    </column>
+    <column id="37" parent="16" name="accion">
+      <Position>4</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1802</StateNumber>
+    </column>
+    <column id="38" parent="16" name="tabla">
+      <Position>5</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1802</StateNumber>
+    </column>
+    <column id="39" parent="16" name="anterior">
+      <Position>6</Position>
+      <DataType>json|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1802</StateNumber>
+    </column>
+    <column id="40" parent="16" name="nuevo">
+      <Position>7</Position>
+      <DataType>json|0</DataType>
+      <StateNumber>1802</StateNumber>
+    </column>
+    <index id="41" parent="16" name="pk_auditoria">
+      <ObjectId>35120</ObjectId>
+      <ColNames>id_auditoria</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="42" parent="16" name="pk_auditoria">
+      <ObjectId>35121</ObjectId>
+      <ColNames>id_auditoria</ColNames>
+      <UnderlyingIndexName>pk_auditoria</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="43" parent="16" name="fk_auditoria_usuarios">
+      <ObjectId>35145</ObjectId>
+      <ColNames>id_usuario</ColNames>
+      <RefTableName>usuarios</RefTableName>
+      <RefKeyName>pk_usuarios</RefKeyName>
+      <RefColNames>id_usuario</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <column id="44" parent="17" name="id_compra">
+      <Position>1</Position>
+      <DataType>smallint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1823</StateNumber>
+      <SequenceName>compras_id_compra_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;compras_id_compra_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="45" parent="17" name="fecha">
+      <Position>2</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1806</StateNumber>
+      <DefaultExpression>now()</DefaultExpression>
+    </column>
+    <column id="46" parent="17" name="id_tercero">
+      <Position>3</Position>
+      <DataType>smallint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1806</StateNumber>
+    </column>
+    <column id="47" parent="17" name="id_producto">
+      <Position>4</Position>
+      <DataType>smallint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1806</StateNumber>
+    </column>
+    <column id="48" parent="17" name="cantidad">
+      <Position>5</Position>
+      <DataType>smallint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1806</StateNumber>
+    </column>
+    <column id="49" parent="17" name="valor">
+      <Position>6</Position>
+      <DataType>smallint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1806</StateNumber>
+    </column>
+    <column id="50" parent="17" name="id_usuario">
+      <Position>7</Position>
+      <DataType>smallint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1806</StateNumber>
+    </column>
+    <index id="51" parent="17" name="pk_compras">
+      <ObjectId>35122</ObjectId>
+      <ColNames>id_compra</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="52" parent="17" name="pk_compras">
+      <ObjectId>35123</ObjectId>
+      <ColNames>id_compra</ColNames>
+      <UnderlyingIndexName>pk_compras</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="53" parent="17" name="fk_compras_terceros">
+      <ObjectId>35155</ObjectId>
+      <ColNames>id_tercero</ColNames>
+      <RefTableName>terceros</RefTableName>
+      <RefKeyName>pk_terceros</RefKeyName>
+      <RefColNames>id_tercero</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <foreign-key id="54" parent="17" name="fk_compras_productos">
+      <ObjectId>35150</ObjectId>
+      <ColNames>id_producto</ColNames>
+      <RefTableName>productos</RefTableName>
+      <RefKeyName>pk_productos</RefKeyName>
+      <RefColNames>id_producto</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <foreign-key id="55" parent="17" name="fk_compras_usuarios">
+      <ObjectId>35160</ObjectId>
+      <ColNames>id_usuario</ColNames>
+      <RefTableName>usuarios</RefTableName>
+      <RefKeyName>pk_usuarios</RefKeyName>
+      <RefColNames>id_usuario</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <check id="56" parent="17" name="ck_compras_cantidad">
+      <ObjectId>35087</ObjectId>
+      <ColNames>cantidad</ColNames>
+      <Predicate>cantidad &gt; 0</Predicate>
+    </check>
+    <check id="57" parent="17" name="ck_compras_valor">
+      <ObjectId>35088</ObjectId>
+      <ColNames>valor</ColNames>
+      <Predicate>valor &gt; 0</Predicate>
+    </check>
+    <trigger id="58" parent="17" name="tg_compras_auditoria">
+      <ObjectId>35142</ObjectId>
+      <StateNumber>1891</StateNumber>
+      <Turn>after-row</Turn>
+      <Events>I</Events>
+      <FireMode>origin</FireMode>
+      <CallRoutineId>35070</CallRoutineId>
+    </trigger>
+    <column id="59" parent="18" name="id_perfil">
+      <Position>1</Position>
+      <DataType>smallint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1824</StateNumber>
+      <SequenceName>perfiles_id_perfil_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;perfiles_id_perfil_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="60" parent="18" name="perfil">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1809</StateNumber>
+    </column>
+    <index id="61" parent="18" name="pk_perfiles">
+      <ObjectId>35124</ObjectId>
+      <ColNames>id_perfil</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="62" parent="18" name="uk_perfiles">
+      <ObjectId>35134</ObjectId>
+      <ColNames>perfil</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="63" parent="18" name="pk_perfiles">
+      <ObjectId>35125</ObjectId>
+      <ColNames>id_perfil</ColNames>
+      <UnderlyingIndexName>pk_perfiles</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="64" parent="18" name="uk_perfiles">
+      <ObjectId>35135</ObjectId>
+      <ColNames>perfil</ColNames>
+      <UnderlyingIndexName>uk_perfiles</UnderlyingIndexName>
+    </key>
+    <column id="65" parent="19" name="id_producto">
+      <Position>1</Position>
+      <DataType>smallint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1825</StateNumber>
+      <SequenceName>productos_id_producto_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;productos_id_producto_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="66" parent="19" name="nombre">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1792</StateNumber>
+    </column>
+    <column id="67" parent="19" name="cantidad">
+      <Position>3</Position>
+      <DataType>smallint|0</DataType>
+      <StateNumber>1792</StateNumber>
+    </column>
+    <column id="68" parent="19" name="precio">
+      <Position>4</Position>
+      <DataType>smallint|0</DataType>
+      <StateNumber>1792</StateNumber>
+    </column>
+    <column id="69" parent="19" name="id_usuario">
+      <Position>5</Position>
+      <DataType>smallint|0</DataType>
+      <StateNumber>1792</StateNumber>
+    </column>
+    <index id="70" parent="19" name="pk_productos">
+      <ObjectId>35126</ObjectId>
+      <ColNames>id_producto</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="71" parent="19" name="uk_productos">
+      <ObjectId>35136</ObjectId>
+      <ColNames>nombre</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="72" parent="19" name="pk_productos">
+      <ObjectId>35127</ObjectId>
+      <ColNames>id_producto</ColNames>
+      <UnderlyingIndexName>pk_productos</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="73" parent="19" name="uk_productos">
+      <ObjectId>35137</ObjectId>
+      <ColNames>nombre</ColNames>
+      <UnderlyingIndexName>uk_productos</UnderlyingIndexName>
+    </key>
+    <foreign-key id="74" parent="19" name="fk_productos_usuarios">
+      <ObjectId>35165</ObjectId>
+      <ColNames>id_usuario</ColNames>
+      <RefTableName>usuarios</RefTableName>
+      <RefKeyName>pk_usuarios</RefKeyName>
+      <RefColNames>id_usuario</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <check id="75" parent="19" name="ck_cantidad">
+      <ObjectId>35061</ObjectId>
+      <ColNames>cantidad</ColNames>
+      <Predicate>cantidad &gt; 0</Predicate>
+    </check>
+    <check id="76" parent="19" name="ck_precio">
+      <ObjectId>35062</ObjectId>
+      <ColNames>precio</ColNames>
+      <Predicate>precio &gt; 0</Predicate>
+    </check>
+    <trigger id="77" parent="19" name="tg_productos_auditoria">
+      <ObjectId>35143</ObjectId>
+      <StateNumber>1892</StateNumber>
+      <Turn>after-row</Turn>
+      <Events>U</Events>
+      <FireMode>origin</FireMode>
+      <CallRoutineId>35071</CallRoutineId>
+    </trigger>
+    <column id="78" parent="20" name="id_tercero">
+      <Position>1</Position>
+      <DataType>smallint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1826</StateNumber>
+      <SequenceName>terceros_id_tercero_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;terceros_id_tercero_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="79" parent="20" name="identificacion">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1795</StateNumber>
+    </column>
+    <column id="80" parent="20" name="nombre">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1795</StateNumber>
+    </column>
+    <column id="81" parent="20" name="direccion">
+      <Position>4</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1795</StateNumber>
+    </column>
+    <column id="82" parent="20" name="telefono">
+      <Position>5</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1795</StateNumber>
+    </column>
+    <index id="83" parent="20" name="pk_terceros">
+      <ObjectId>35128</ObjectId>
+      <ColNames>id_tercero</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="84" parent="20" name="uk_terceros">
+      <ObjectId>35138</ObjectId>
+      <ColNames>identificacion</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="85" parent="20" name="pk_terceros">
+      <ObjectId>35129</ObjectId>
+      <ColNames>id_tercero</ColNames>
+      <UnderlyingIndexName>pk_terceros</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="86" parent="20" name="uk_terceros">
+      <ObjectId>35139</ObjectId>
+      <ColNames>identificacion</ColNames>
+      <UnderlyingIndexName>uk_terceros</UnderlyingIndexName>
+    </key>
+    <column id="87" parent="21" name="id_usuario">
+      <Position>1</Position>
+      <DataType>smallint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1827</StateNumber>
+      <SequenceName>usuarios_id_usuario_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;usuarios_id_usuario_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="88" parent="21" name="usuario">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1816</StateNumber>
+    </column>
+    <column id="89" parent="21" name="nombre">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1816</StateNumber>
+    </column>
+    <column id="90" parent="21" name="clave">
+      <Position>4</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1816</StateNumber>
+    </column>
+    <column id="91" parent="21" name="id_perfil">
+      <Position>5</Position>
+      <DataType>smallint|0</DataType>
+      <StateNumber>1816</StateNumber>
+    </column>
+    <index id="92" parent="21" name="pk_usuarios">
+      <ObjectId>35130</ObjectId>
+      <ColNames>id_usuario</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="93" parent="21" name="uk_usuarios">
+      <ObjectId>35140</ObjectId>
+      <ColNames>usuario</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="94" parent="21" name="pk_usuarios">
+      <ObjectId>35131</ObjectId>
+      <ColNames>id_usuario</ColNames>
+      <UnderlyingIndexName>pk_usuarios</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="95" parent="21" name="uk_usuarios">
+      <ObjectId>35141</ObjectId>
+      <ColNames>usuario</ColNames>
+      <UnderlyingIndexName>uk_usuarios</UnderlyingIndexName>
+    </key>
+    <foreign-key id="96" parent="21" name="fk_usuarios_perfiles">
+      <ObjectId>35170</ObjectId>
+      <ColNames>id_perfil</ColNames>
+      <RefTableName>perfiles</RefTableName>
+      <RefKeyName>pk_perfiles</RefKeyName>
+      <RefColNames>id_perfil</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <column id="97" parent="22" name="id_venta">
+      <Position>1</Position>
+      <DataType>smallint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1828</StateNumber>
+      <SequenceName>ventas_id_venta_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;ventas_id_venta_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="98" parent="22" name="fecha">
+      <Position>2</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1819</StateNumber>
+      <DefaultExpression>now()</DefaultExpression>
+    </column>
+    <column id="99" parent="22" name="id_tercero">
+      <Position>3</Position>
+      <DataType>smallint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1819</StateNumber>
+    </column>
+    <column id="100" parent="22" name="id_producto">
+      <Position>4</Position>
+      <DataType>smallint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1819</StateNumber>
+    </column>
+    <column id="101" parent="22" name="cantidad">
+      <Position>5</Position>
+      <DataType>smallint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1819</StateNumber>
+    </column>
+    <column id="102" parent="22" name="valor">
+      <Position>6</Position>
+      <DataType>smallint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1819</StateNumber>
+    </column>
+    <column id="103" parent="22" name="id_usuario">
+      <Position>7</Position>
+      <DataType>smallint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1819</StateNumber>
+    </column>
+    <index id="104" parent="22" name="pk_ventas">
+      <ObjectId>35132</ObjectId>
+      <ColNames>id_venta</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="105" parent="22" name="pk_ventas">
+      <ObjectId>35133</ObjectId>
+      <ColNames>id_venta</ColNames>
+      <UnderlyingIndexName>pk_ventas</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="106" parent="22" name="fk_ventas_terceros">
+      <ObjectId>35180</ObjectId>
+      <ColNames>id_tercero</ColNames>
+      <RefTableName>terceros</RefTableName>
+      <RefKeyName>pk_terceros</RefKeyName>
+      <RefColNames>id_tercero</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <foreign-key id="107" parent="22" name="fk_ventas_productos">
+      <ObjectId>35175</ObjectId>
+      <ColNames>id_producto</ColNames>
+      <RefTableName>productos</RefTableName>
+      <RefKeyName>pk_productos</RefKeyName>
+      <RefColNames>id_producto</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <foreign-key id="108" parent="22" name="fk_ventas_usuario">
+      <ObjectId>35185</ObjectId>
+      <ColNames>id_usuario</ColNames>
+      <RefTableName>usuarios</RefTableName>
+      <RefKeyName>pk_usuarios</RefKeyName>
+      <RefColNames>id_usuario</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+    </foreign-key>
+    <check id="109" parent="22" name="ck_ventas_cantidad">
+      <ObjectId>35109</ObjectId>
+      <ColNames>cantidad</ColNames>
+      <Predicate>cantidad &gt; 0</Predicate>
+    </check>
+    <check id="110" parent="22" name="ck_ventas_valor">
+      <ObjectId>35110</ObjectId>
+      <ColNames>valor</ColNames>
+      <Predicate>valor &gt; 0</Predicate>
+    </check>
+    <trigger id="111" parent="22" name="tg_ventas_auditoria">
+      <ObjectId>35144</ObjectId>
+      <StateNumber>1893</StateNumber>
+      <Turn>after-row</Turn>
+      <Events>I</Events>
+      <FireMode>origin</FireMode>
+      <CallRoutineId>35072</CallRoutineId>
+    </trigger>
+    <argument id="112" parent="23" name="_usuario">
+      <Position>1</Position>
+      <DataType>varchar|0</DataType>
+    </argument>
+    <argument id="113" parent="23" name="_clave">
+      <Position>2</Position>
+      <DataType>varchar|0</DataType>
+    </argument>
+    <argument id="114" parent="23">
+      <ArgumentDirection>T</ArgumentDirection>
+      <DataType>table(id_usuario smallint, nombre varchar, id_perfil smallint, perfil varchar)|0</DataType>
+    </argument>
+    <argument id="115" parent="24" name="_proveedor">
+      <Position>1</Position>
+      <DataType>smallint|0</DataType>
+    </argument>
+    <argument id="116" parent="24" name="_producto">
+      <Position>2</Position>
+      <DataType>smallint|0</DataType>
+    </argument>
+    <argument id="117" parent="24" name="_cantidad">
+      <Position>3</Position>
+      <DataType>smallint|0</DataType>
+    </argument>
+    <argument id="118" parent="24" name="_valor">
+      <Position>4</Position>
+      <DataType>smallint|0</DataType>
+    </argument>
+    <argument id="119" parent="24" name="_usuario">
+      <Position>5</Position>
+      <DataType>smallint|0</DataType>
+    </argument>
+    <argument id="120" parent="24">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>smallint|0</DataType>
+    </argument>
+    <argument id="121" parent="25" name="_limite">
+      <Position>1</Position>
+      <DataType>smallint|0</DataType>
+    </argument>
+    <argument id="122" parent="25" name="_pagina">
+      <Position>2</Position>
+      <DataType>smallint|0</DataType>
+    </argument>
+    <argument id="123" parent="25">
+      <ArgumentDirection>T</ArgumentDirection>
+      <DataType>table(id_compra smallint, fecha date, cliente varchar, producto varchar, cantidad smallint, valor smallint)|0</DataType>
+    </argument>
+    <argument id="124" parent="26" name="_limite">
+      <Position>1</Position>
+      <DataType>smallint|0</DataType>
+    </argument>
+    <argument id="125" parent="26" name="_pagina">
+      <Position>2</Position>
+      <DataType>smallint|0</DataType>
+    </argument>
+    <argument id="126" parent="26">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>setof productos|0</DataType>
+    </argument>
+    <argument id="127" parent="27">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>setof productos|0</DataType>
+    </argument>
+    <argument id="128" parent="28">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>setof terceros|0</DataType>
+    </argument>
+    <argument id="129" parent="29" name="_limite">
+      <Position>1</Position>
+      <DataType>smallint|0</DataType>
+    </argument>
+    <argument id="130" parent="29" name="_pagina">
+      <Position>2</Position>
+      <DataType>smallint|0</DataType>
+    </argument>
+    <argument id="131" parent="29">
+      <ArgumentDirection>T</ArgumentDirection>
+      <DataType>table(id_venta smallint, fecha date, cliente varchar, producto varchar, cantidad smallint, valor smallint)|0</DataType>
+    </argument>
+    <argument id="132" parent="30">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>trigger|0</DataType>
+    </argument>
+    <argument id="133" parent="31">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>trigger|0</DataType>
+    </argument>
+    <argument id="134" parent="32">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>trigger|0</DataType>
+    </argument>
+    <argument id="135" parent="33" name="_cliente">
+      <Position>1</Position>
+      <DataType>smallint|0</DataType>
+    </argument>
+    <argument id="136" parent="33" name="_producto">
+      <Position>2</Position>
+      <DataType>smallint|0</DataType>
+    </argument>
+    <argument id="137" parent="33" name="_cantidad">
+      <Position>3</Position>
+      <DataType>smallint|0</DataType>
+    </argument>
+    <argument id="138" parent="33" name="_usuario">
+      <Position>4</Position>
+      <DataType>smallint|0</DataType>
+    </argument>
+    <argument id="139" parent="33">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>smallint|0</DataType>
+    </argument>
+  </database-model>
+</dataSource>

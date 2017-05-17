@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0"/>
+    <link rel="stylesheet" href="/resources/css/estilos.css"/>
+    <link href="https://file.myfontastic.com/gVhWFfTbY55yVaY7oxJaF3/icons.css" rel="stylesheet"/>
+    <title>Sistema de facturación - Escuela Digital</title>
+  </head>
+  <body class="inicio">
+    <header class="main-header">
+      <div class="ed-container">
+        <div class="ed-item"><img src="/resources/img/logo.png" class="logo"/></div>
+      </div>
+    </header>
+    <main class="ed-container">
+      <div class="ed-item">
+        <h1>Ingresar</h1>
+        <form class="login-form ed-container web-40" action="/autenticar" method="post">
+          <div class="ed-item form-item">
+            <label for="usuario">Usuario</label>
+            <input type="text" name="usuario" id="usuario" class="input" autofocus autocomplete="off"/>
+          </div>
+          <div class="ed-item form-item">
+            <label for="clave">Contraseña</label>
+            <input type="password" name="clave" id="clave" class="input"/>
+          </div>
+          <div class="ed-item form-item">
+            <input type="submit" value="Ingresar"/>
+          </div>
+        </form>
+          <div class="web-40">
+          {{if .Mensaje}}
+              {{.Mensaje}}
+          {{end}}
+          </div>
+      </div>
+    </main>
+    <footer class="main-footer">
+      <div class="ed-container">
+        <div class="ed-item">
+          <p>Curso Bases de Datos Desde Cero - Alexys Lozada</p>
+        </div>
+      </div>
+    </footer>
+    <script src="/resources/js/efectos.js"></script>
+  </body>
+</html>
