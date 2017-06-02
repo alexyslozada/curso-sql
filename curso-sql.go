@@ -16,9 +16,9 @@ type mensaje struct {
 }
 
 type datos struct {
-	Terceros []model.Tercero
+	Terceros  []model.Tercero
 	Productos []model.Producto
-	Mensaje string
+	Mensaje   string
 }
 
 var (
@@ -69,7 +69,6 @@ func index(w http.ResponseWriter, r *http.Request) {
 		tpl.ExecuteTemplate(w, "index.gohtml", nil)
 		return
 	}
-
 
 	if u.ID > 0 {
 		http.Redirect(w, r, "/lista-productos", http.StatusTemporaryRedirect)
@@ -144,9 +143,9 @@ func listaProductos(w http.ResponseWriter, r *http.Request) {
 
 func listaCompras(w http.ResponseWriter, r *http.Request) {
 	type data struct {
-		Compras []model.Compra
+		Compras  []model.Compra
 		Cantidad int
-		Valor int
+		Valor    int
 	}
 	d := data{}
 	l, p := 10, 1
@@ -170,9 +169,9 @@ func listaCompras(w http.ResponseWriter, r *http.Request) {
 
 func listaVentas(w http.ResponseWriter, r *http.Request) {
 	type data struct {
-		Ventas []model.Venta
+		Ventas   []model.Venta
 		Cantidad int
-		Valor int
+		Valor    int
 	}
 	d := data{}
 	l, p := 10, 1
@@ -248,8 +247,8 @@ func loadDataForSales() (datos, error) {
 func compras(w http.ResponseWriter, r *http.Request) {
 	type dataBuy struct {
 		Proveedores []model.Tercero
-		Productos []model.Producto
-		Mensaje string
+		Productos   []model.Producto
+		Mensaje     string
 	}
 
 	d := dataBuy{}
